@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><i class="fa fa-window-close" aria-hidden="true"></i>
+</head>
+
+<body>
+    <script>
+        // 實作 Fibonacci number (費式數列)
+        // 建立函式 fibonacci 代入參數 position，position 表示的是想要得到 fibonacci sequence 中的第幾個數字的值。
+        // fibonacci(0) // 0
+        // fibonacci(1) // 1
+        // fibonacci(2) // 1
+        // fibonacci(3) // 2
+        // fibonacci(4) // 3
+        function fibonacci(position) {
+            if (position < 2) {
+                return position;
+            }
+            return fibonacci(position - 1) + fibonacci(position - 2);
+        }
+
+        // 擇一實作 Debounce 或 Throttle
+        // debounce 是在 delay 時間內如果重新觸發會取消前一次並保留當下觸發的執行。 throttle 在觸發後的 timeout 時間內只會執行一次。
+        // 建立函式 debounce 或 throttle 帶入參數如下範例：
+        // const debounceFunc = debounce(func, delay)
+        // const throttleFunc = throttle(func, timeout)
+        function debounce(func, delay) {
+            var timer = null;
+            return function () {
+                var context = this;
+                var args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    func.apply(context, args)
+                }, delay);
+            }
+        }
+
+        // 使用 Linked List 實作 Stack 實作需包含以下方法。
+        // push() : 添加新元素。
+        // pop()：移除元素並返回被移除的元素。
+        // size()：返回所有元素數量。
+        // const myStack = new Stack()
+        // myStack.push(1)
+        // myStack.push(2)
+        // myStack.push(3)
+        // myStack.pop() // 3
+        // myStack.size() // 2
+        class Stack {
+            constructor() {
+                this.list = []
+            }
+            // 從最頂端加入
+            push(el) {
+                this.list.push(el)
+            }
+            // 從最頂端移除
+            pop() {
+                return this.list.pop()
+            }
+            // 總共堆了幾個元素
+            size() {
+                return this.list.length;
+            }
+        }
+        const myStack = new Stack()
+        myStack.push(1)
+        myStack.push(2)
+        myStack.push(3)
+        myStack.pop()
+        myStack.size()
+
+        
+    </script>
+
+</body>
+
+</html>
